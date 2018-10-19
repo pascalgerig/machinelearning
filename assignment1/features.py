@@ -28,10 +28,8 @@ def hog_features(X):
 
         image = np.reshape(X[i, 1:], [24, 24])
 
-        fd = hog(image, orientations=8, pixels_per_cell=(8, 8),
-                            cells_per_block=(1, 1), visualize=False, multichannel=False)
-
-        #fd = np.reshape(fd, [24, 24])
+        fd = hog(image, orientations=8, pixels_per_cell=(8, 8), block_norm='L1',
+                cells_per_block=(1, 1), visualize=False, multichannel=False)
 
         hog_list.append(fd)
 

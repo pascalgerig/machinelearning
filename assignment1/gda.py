@@ -32,7 +32,12 @@ def gda(X, y):
     #                                                                     #
     #######################################################################
 
-    pass
+    y = y[:, np.newaxis]
+    phi = float(np.count_nonzero(y)) / y.shape[0]
+    mu_0 = np.sum((1 - y) * X / (y.shape[0] - np.count_nonzero(y)), axis = 0)
+    mu_1 = np.sum(y * X / (np.count_nonzero(y)), axis = 0)
+    matrix = (X - ((1 - y) * mu_0 + y * mu_1))
+    sigma = np.matmul(matrix.T, matrix) / y.shape[0]
 
     #######################################################################
     #                         END OF YOUR CODE                            #

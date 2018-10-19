@@ -30,6 +30,7 @@ def logistic_SGD(X, y, num_iter=100000, alpha=0.01):
         #   - Update theta based on alpha and using gradient_function         #
         #                                                                     #
         #######################################################################
+
         random = int(np.floor(np.random.random() * X.shape[0]))
         random_X = X[random, np.newaxis]
         random_y = y[random, np.newaxis]
@@ -39,6 +40,7 @@ def logistic_SGD(X, y, num_iter=100000, alpha=0.01):
         theta = theta[:, np.newaxis]
         theta = theta + alpha * grad
         theta = np.squeeze(theta)
+
         #######################################################################
         #                         END OF YOUR CODE                            #
         #######################################################################
