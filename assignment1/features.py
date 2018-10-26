@@ -31,6 +31,9 @@ def hog_features(X):
         fd = hog(image, orientations=8, pixels_per_cell=(8, 8), block_norm='L1',
                 cells_per_block=(1, 1), visualize=False, multichannel=False)
 
+        #intercept term
+        fd = np.insert(fd, 0, 1)
+
         hog_list.append(fd)
 
         #######################################################################
