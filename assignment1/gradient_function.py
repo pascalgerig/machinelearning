@@ -24,6 +24,7 @@ def gradient_function(theta, X, y):
     # derivatives of the cost w.r.t. each parameter in theta              #
     #                                                                     #
     #######################################################################
+    #add one dimension to theta in order to be able to do calculations with it
     theta = theta[:, np.newaxis]
     h = sigmoid(np.dot(theta.T, X.T))
     grad = (y - h) * X.T

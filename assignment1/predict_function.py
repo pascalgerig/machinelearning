@@ -17,10 +17,12 @@ def predict_function(theta, X, y=None):
     # If y is provided compute the accuracy of the classifier as well.    #
     #                                                                     #
     #######################################################################
-    
+    # make sure dimension of variables is appropriat for further calculation
     theta = theta[:, np.newaxis]
+    #do predictions
     preds = np.squeeze(np.round(sigmoid(np.dot(theta.T, X.T))).astype(int))
 
+    #calculate accuracy
     if not(y is None):
         accuracyCount = 0.0
         totalCount = 0.0

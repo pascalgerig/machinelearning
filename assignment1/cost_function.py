@@ -23,6 +23,7 @@ def cost_function(theta, X, y):
     # theta.                                                              #
     #                                                                     #
     #######################################################################
+    #add one dimension to theta in order to be able to use it in a dot product
     theta = theta[:, np.newaxis]
     h = sigmoid(np.dot(theta.T, X.T))
     l = np.sum(y * np.log(h) + (1 - y) * np.log(1 - h))

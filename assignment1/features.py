@@ -26,12 +26,14 @@ def hog_features(X):
         #                                                                     #
         #######################################################################
 
+        #reshape
         image = np.reshape(X[i, 1:], [24, 24])
 
-        fd = hog(image, orientations=8, pixels_per_cell=(8, 8), block_norm='L1',
+        #extract hog
+        fd = hog(image, orientations=16, pixels_per_cell=(2, 2), block_norm='L1',
                 cells_per_block=(1, 1), visualize=False, multichannel=False)
 
-        #intercept term
+        #insert intercept term at front
         fd = np.insert(fd, 0, 1)
 
         hog_list.append(fd)

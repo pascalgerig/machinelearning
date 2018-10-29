@@ -32,6 +32,7 @@ def gda(X, y):
     #                                                                     #
     #######################################################################
 
+    #add one dimension to y in order to be able to do calculations with y
     y = y[:, np.newaxis]
     phi = float(np.count_nonzero(y)) / y.shape[0]
     mu_0 = np.sum((1 - y) * X / (y.shape[0] - np.count_nonzero(y)), axis = 0)
