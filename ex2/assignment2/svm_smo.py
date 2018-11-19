@@ -47,7 +47,7 @@ def linear(x, y, b=1):
     #######################################################################
 
     #TODO check for correctnes
-    result = np.squeeze(np.dot(x, y.T)) + b
+    result = np.squeeze(np.matmul(x, y.T)) + b
 
     #######################################################################
     #                         END OF YOUR CODE                            #
@@ -76,7 +76,15 @@ def gaussian(x, y, sigma=1):
     # Compute the Gaussian kernel between x and y                         #
     #######################################################################
     
-    result = np.exp(-np.linalg.norm(x - y) ** 2 / (2 * sigma ** 2))
+    #result = np.exp(-np.linalg.norm(x - y) ** 2 / (2 * sigma ** 2))
+
+    #TODO why does this work and the one on top does not?
+    if np.ndim(x) == 1 and np.ndim(y) == 1:
+        result = np.squeeze(np.exp(- np.linalg.norm(x - y) / (2 * sigma ** 2)))
+    elif (np.ndim(x) > 1 and np.ndim(y) == 1) or (np.ndim(x) == 1 and np.ndim(y) > 1):
+        result = np.squeeze(np.exp(- np.linalg.norm(x - y, axis=1) / (2 * sigma ** 2)))
+    elif np.ndim(x) > 1 and np.ndim(y) > 1:
+        result = np.squeeze(np.exp(- np.linalg.norm(x[:, np.newaxis] - y[np.newaxis, :], axis=2) / (2 * sigma ** 2)))
     
     #######################################################################
     #                         END OF YOUR CODE                            #
@@ -104,8 +112,8 @@ def objective_function(alphas, y,kernel, X):
     # TODO:                                                               #
     # Compute the objective function                                      #
     #######################################################################
-    
-    pass
+
+    result = np.sum(alphas) - 0.5 * np.sum(y * y * kernel(X, X) * alphas * alphas)
 
     #######################################################################
     #                         END OF YOUR CODE                            #
@@ -135,9 +143,9 @@ def decision_function(alphas, target, kernel, X_train, x_test, b):
     # TODO:                                                               #
     # Compute the decision function                                       #
     #######################################################################
-    
-    pass
-    
+
+    result = np.squeeze(np.matmul((alphas * target), kernel(X_train, x_test))) - b
+
     #######################################################################
     #                         END OF YOUR CODE                            #
     #######################################################################
@@ -215,7 +223,10 @@ def take_step(i1, i2, model):
         # Clip a2 based on the last equation in the notes                     #
         #######################################################################
         
-        pass
+        if (a2 < L):
+            a2 = L
+        elif (a2 > H):
+            a2 = H
             
         #######################################################################
         #                         END OF YOUR CODE                            #
