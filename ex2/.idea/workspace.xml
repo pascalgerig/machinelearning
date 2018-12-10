@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17eff594-3d22-4f69-b48e-977e737d93da" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Assignment1.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/cost_function.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/features.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/gda.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/gradient_function.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/logistic_SGD.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/predict_function.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../assignment1/sigmoid.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment2/svm_smo.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/svm_smo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../faces.mat" beforeDir="false" />
-    </list>
+    <list default="true" id="17eff594-3d22-4f69-b48e-977e737d93da" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +12,13 @@
     <session id="47165075">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="3" />
+          <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,20 +44,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assignment2/svm_smo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="78" column="1" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -121,7 +95,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ex3" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -153,7 +127,7 @@
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.097399004" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09850581" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -185,7 +159,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/assignment2/svm_smo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
+        <state relative-caret-position="540">
           <caret line="78" column="1" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
