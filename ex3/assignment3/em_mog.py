@@ -31,8 +31,11 @@ def em_mog(X, k, max_iter=20):
     # TODO:                                                               #
     # Initialize the means of the gaussians. You can use K-means!         #
     #######################################################################
-    
-    pass
+
+    #apply kmeans algorithm and assign the cluster centers to mu
+    kmeans = KMeans(n_clusters=k, max_iter=max_iter)
+    kmeans.fit(X)
+    mu = kmeans.cluster_centers_
     
     #######################################################################
     #                         END OF YOUR CODE                            #
@@ -76,8 +79,15 @@ def log_likelihood(X, mu, sigma, phi):
     # Compute the log-likelihood of the data under the current model.     #
     # This is used to check for convergnence of the algorithm.            #
     #######################################################################
-    
-    pass
+
+    ll = 0.0
+
+    #iteratively calculate log likelihood
+    for i in range(X.shape[0]):
+        likelihood_sum = 0.0
+        for j in range(mu.shape[0]):
+            likelihood_sum += multivariate_normal.pdf(X[i], mean=mu[j], cov=sigma[j]) * phi[j]
+        ll += np.log(likelihood_sum)
     
     #######################################################################
     #                         END OF YOUR CODE                            #
@@ -102,8 +112,16 @@ def e_step(X, mu, sigma, phi):
     # Use scipy.stats.multivariate_normal.pdf(...) to compute the pdf of  #
     # of a gaussian with the current parameters.                          # 
     #######################################################################
-    
-    pass
+
+    #init w
+    w = np.zeros((X.shape[0], phi.shape[0]))
+
+    # Calculate the columns of the matrix.
+    for i in range(mu.shape[0]):
+        w[:, i] = multivariate_normal.pdf(X, mean=mu[i], cov=sigma[i]) * phi[i]
+
+    # Division over the sum of each row
+    w /= np.sum(w, axis=1)[:, None]
     
     #######################################################################
     #                         END OF YOUR CODE                            #
@@ -122,8 +140,19 @@ def m_step(w, X, mu, sigma, phi, k):
     # Update all the model parameters as per the M-step of the EM         #
     # algorithm.
     #######################################################################
-    
-    pass
+
+    phi = np.sum(w, axis=0) / X.shape[0]
+    sig_mat = np.zeros(sigma[0].shape)
+
+    # Componentwise division
+    mu = np.dot(w.T, X) / np.sum(w, axis=0)[:, np.newaxis]
+
+    for j in range(k):
+        for i in range(X.shape[0]):
+            inner_vec = (X[i] - mu[j]).flatten()
+            sig_mat += np.multiply(w[i, j], np.outer(inner_vec, inner_vec))
+
+        sigma[j] = np.divide(sig_mat, np.sum(w[:, j]))
     
     #######################################################################
     #                         END OF YOUR CODE                            #
